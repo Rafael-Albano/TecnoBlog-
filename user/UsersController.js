@@ -16,7 +16,7 @@ router.get("/admin/users/create", (req, res) => {
 });
 
 router.post("/user/create", (req, res) => {
-  console.log("Toma no cú");
+  
 
   let { email, pass } = req.body;
 
