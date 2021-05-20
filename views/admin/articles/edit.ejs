@@ -1,0 +1,44 @@
+<%- include('../../partials/header.ejs') %>
+  <%- include('../../partials/navbar.ejs') %>
+  <main class="container">
+    <div class="card mt-5">
+      <div class="card-header">
+        <h5 class="card-title">Editar Artigo</h5
+      </div>
+      <div class="card-body">
+        <form method="POST" action="/admin/articles/update">
+
+          <div class="mb-3">
+            <input type="hidden" class="form-control" name="id" value="<%= article.id %>">
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" class="form-control" id="title_edit" name="new_title" value="<%= article.title %>">
+          </div>
+          <div class="mb-3">
+            <label for="content-article" class="form-label">Conteúdo</label>
+            <textarea class="form-control" id="content-new-article" name="content_article" rows="3" placeholder="Insira aqui o conteudo do artigo">
+              <%= article.body %>
+            </textarea>
+          </div>
+
+          <button type="submit" class="btn btn-success">Atualizar</button>
+        </form>
+        
+      </div>
+    </div>
+  </main>
+
+<%- include('../../partials/footer.ejs') %>
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+  // var myContent = tinymce.get("#content-article").getContent({ format: "text" });
+  tinymce.init({
+    language: 'pt_BR',
+    selector: "#content-new-article",
+    plugins: [
+      'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+    ],
+    // myContent
+  })
+</script>

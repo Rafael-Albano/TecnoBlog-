@@ -1,0 +1,2 @@
+Um Artigo pertence a uma Categoria(1:1). => BelongsTo().
+Uma Categoria tem vários Artigos(1:n). => hasMany().

@@ -1,0 +1,51 @@
+<%- include('../../partials/header.ejs') %>
+  <%- include('../../partials/navbar.ejs') %>
+  <main class="container">
+    <div class="card mt-5">
+      <div class="card-header">
+        <h5 class="card-title">Novo Artigo</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="/article/save">
+          <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Defina o título do artigo">
+          </div>
+
+          <div class="mb-3">
+            <label for="selectCategory" class="form-label">Categoria</label>
+            <select id="selectCategory" class="form-select" name="id_category">
+              <% categories.forEach(function(category) { %>
+                <option value="<%= category.id%>"><%= category.title %></option>
+              <% }); %>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="content-article" class="form-label">Conteúdo</label>
+            <textarea class="form-control" id="content-article"  name="content_article" rows="3" placeholder="Insira aqui o conteudo do artigo">
+              
+            </textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Cadastrar</button>
+        </form>
+        
+      </div>
+    </div>
+  </main>
+
+<%- include('../../partials/footer.ejs') %>
+
+<!-- USANDO O TINYMCE -->
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+  // var myContent = tinymce.get("#content-article").getContent({ format: "text" });
+  tinymce.init({
+    language: 'pt_BR',
+    selector: "#content-article",
+    plugins: [
+      'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+    ],
+    // myContent
+  })
+</script>

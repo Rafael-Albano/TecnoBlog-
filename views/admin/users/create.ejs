@@ -1,0 +1,37 @@
+<%- include('../../partials/header.ejs'); -%>
+<%- include('../../partials/navbar'); %>
+
+<main class="container">
+
+  <div class="card mt-5">
+    <div class="card-header">
+      <h5 class="card-title">Criação do Usuário</h5>
+    </div>
+    <div class="card-body">
+      
+      <form method="POST" action="/user/create">
+        <div class="mb-3">
+          <label for="user-email" class="form-label">Email: </label>
+          <input type="email" class="form-control" id="user-email" name="email" aria-describedby="emailHelp" placeholder="meu@email.com">
+          <div id="emailHelp" class="form-text">Nunca compartilharemos seu e-mail com mais ninguém</div>
+        </div>
+        <div class="mb-3">
+          <label for="user-pass" class="form-label">Senha: </label>
+          <input type="password" class="form-control" id="user-pass" name="pass" type="password" placeholder="********">
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-success btn-block">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+</main>
+
+
+<!-- <h1>Toma no cú</h1> -->
+
+<%- include('../../partials/footer.ejs'); -%>
+
+

@@ -1,0 +1,50 @@
+<%- include('./partials/header.ejs'); -%>
+<%- include('./partials/homeNavbar'); %>
+
+<main class="container">
+
+  <div class="p-4 p-md-5 mt-5 mb-5 text-dark rounded" style="background-color:  #eee;">
+    <div >
+      <h1 class="display-4">Bem-Vindo !</h1>
+      <p class="lead my-3">Este é um simples blog para apaixonados por tecnologia.</p>
+      <hr>
+      <p class="lead mb-0 fw-bold">Criado com base nas aulas do curso Guia do Programador.</p>
+    </div>
+  </div>
+
+  <% articles.forEach(function(article){ %>
+    <div class="card mt-5">
+      <div class="card-header">
+        <h5 class="card-title"><%= article.title %></h5>
+      </div>
+      <div class="card-body">
+        <a href="/<%= article.slug %>" class="btn btn-success">Ler Artigo</a> 
+      </div>
+    </div>
+
+  <% }); %>
+
+
+  <nav aria-label="..." class="mt-5">
+    <ul class="d-flex flex-row pagination justify-content-between">
+      <li class="page-item" data-previous>
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+     
+        <a class="page-link" href="/article/page/2">Next</a>
+      </li>
+    </ul>
+  </nav>
+  
+</main>
+
+
+<!-- <h1>Toma no cú</h1> -->
+
+<%- include('./partials/footer.ejs'); -%>
+
+<script>
+  let previous = document.querySelector('[data-previous]');
+
+  previous.classList.add('disabled');
+</script>

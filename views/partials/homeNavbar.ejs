@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-5" href="/">
+      <!-- <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"> -->
+      TecnoBlog
+    </a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <% categories.forEach(function(category){ %>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/category/<%= category.slug %>"> <%= category.title %></a>
+        </li>
+
+        <% }); %>
+        
+      </ul>
+    </div>
+    
+  </div>
+</nav>

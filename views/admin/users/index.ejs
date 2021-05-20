@@ -1,0 +1,45 @@
+<%- include('../../partials/header.ejs') %>
+  <%- include('../../partials/navbar.ejs') %>
+  <main class="container">
+    <div>
+
+      <div>
+        <h3 class="mt-5">Usuários</h3>
+        <a href="/admin/users/create" class="btn btn-success">Criar novo usuário<a/>
+      </div>
+      
+      <hr>
+
+      <table class="table mt-5 table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(function(user){ %>
+            <tr>
+              <th scope="row"><%= user.id %></th>
+              <td><%= user.email %></td>
+              
+            </tr>
+
+          <% }); %>
+         
+        </tbody>
+      </table>
+  
+    </div>
+  </main>
+
+<%- include('../../partials/footer.ejs') %>
+<script>
+  function confirmarDelecao(event, form){
+    event.preventDefault();
+    let decision = confirm("Você quer deletar este artigo ?");
+    if(decision){
+      form.submit();
+    }
+  }
+</script>
